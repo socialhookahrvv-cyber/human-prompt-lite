@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sloow HumanPrompt Ultra Engine</title>
+<title>Sloow HumanPrompt 5.0</title>
 
 <style>
 body{
 font-family: Arial, sans-serif;
-background:#0f0f0f;
+background:#0b0b0b;
 color:white;
 text-align:center;
 padding:20px;
 }
 
 .container{
-max-width:650px;
+max-width:700px;
 margin:auto;
-background:#1c1c1c;
-padding:20px;
-border-radius:14px;
-box-shadow:0 0 30px rgba(0,0,0,0.6);
+background:#161616;
+padding:25px;
+border-radius:16px;
+box-shadow:0 0 40px rgba(0,0,0,0.8);
 }
 
 h2{
@@ -35,18 +35,18 @@ margin-bottom:15px;
 
 .tabs{
 display:flex;
-gap:5px;
+gap:6px;
 margin-bottom:15px;
 flex-wrap:wrap;
 }
 
 .tabs button{
 flex:1;
-padding:10px;
+padding:11px;
 border:none;
-background:#2a2a2a;
+background:#242424;
 color:white;
-border-radius:8px;
+border-radius:10px;
 cursor:pointer;
 font-size:12px;
 }
@@ -60,19 +60,21 @@ font-weight:bold;
 textarea{
 width:100%;
 height:170px;
-border-radius:8px;
-padding:10px;
+border-radius:10px;
+padding:12px;
 border:none;
 resize:none;
 margin-bottom:10px;
+background:#101010;
+color:white;
 }
 
 button.generate{
 background:#00ff88;
 border:none;
-padding:12px;
+padding:14px;
 width:100%;
-border-radius:10px;
+border-radius:12px;
 font-weight:bold;
 cursor:pointer;
 font-size:15px;
@@ -88,19 +90,19 @@ opacity:0.85;
 
 <div class="container">
 
-<h2>HumanPrompt Ultra Engine</h2>
-<p>UGC • Ultra Real • Hiper Real iPhone • Anti-IA • Fundo 100% Natural</p>
+<h2>HumanPrompt Engine 5.0</h2>
+<p>Documental Realism • iPhone Physics • Ultra Natural • Anti-AI Extreme</p>
 
 <div class="tabs">
 <button onclick="setMode('melhorar')" id="tab1" class="active">Melhorar</button>
 <button onclick="setMode('ugc')" id="tab2">UGC Ultra</button>
 <button onclick="setMode('pro')" id="tab3">Ultra Real PRO</button>
-<button onclick="setMode('hiper')" id="tab4">Hiper Real iPhone</button>
+<button onclick="setMode('absurdo')" id="tab4">ENGINE 5.0</button>
 </div>
 
 <textarea id="entrada" placeholder="Cole seu prompt aqui..."></textarea>
 
-<button class="generate" onclick="gerar()">Gerar Prompt Ultra Real</button>
+<button class="generate" onclick="gerar()">Gerar Prompt 5.0</button>
 
 <textarea id="saida" placeholder="Seu prompt final aparecerá aqui..."></textarea>
 
@@ -116,125 +118,85 @@ document.querySelectorAll(".tabs button").forEach(btn => btn.classList.remove("a
 if(m=="melhorar") document.getElementById("tab1").classList.add("active");
 if(m=="ugc") document.getElementById("tab2").classList.add("active");
 if(m=="pro") document.getElementById("tab3").classList.add("active");
-if(m=="hiper") document.getElementById("tab4").classList.add("active");
+if(m=="absurdo") document.getElementById("tab4").classList.add("active");
 }
 
 function gerar(){
 
 let texto = document.getElementById("entrada").value;
 
-let baseMelhorar = `
+let engine5 = `
 ${texto},
-improved composition,
-natural lighting,
-realistic shadows,
-balanced exposure,
-photorealistic details
-`;
 
-let baseUGC = `
-${texto},
-ultra realistic UGC photo,
-smartphone camera capture,
-natural window lighting,
-handheld shot,
-background fully in focus,
-no artificial blur,
-real ambient environment,
-visible skin pores,
-natural skin texture variation,
-realistic hair strands,
-subtle imperfections,
-organic shadows,
-slight motion blur,
-sensor noise,
-minor compression artifacts,
-no CGI,
-no AI look,
-no smooth plastic skin,
-no artificial symmetry
-`;
-
-let basePro = `
-${texto},
-ultra realistic professional natural photo,
-shot on smartphone,
-Apple natural color science,
-real skin pores visible,
-uneven skin tone,
-subtle redness,
-fine lines,
-natural under eye texture,
-peach fuzz visible,
-realistic hair texture,
-imperfect exposure,
-natural dynamic range limitation,
-background completely sharp,
-no depth blur,
-no portrait mode,
-no beauty filter,
-no retouching,
-no CGI,
-no AI look,
-no artificial smoothness
-`;
-
-let baseHiper = `
-${texto},
-HYPER REALISTIC iPhone photo,
-shot on iPhone 15 Pro,
-Apple Smart HDR,
-natural automatic exposure,
+HYPER REALISTIC DOCUMENTARY STYLE iPhone photo,
+shot on iPhone 15 Pro main camera,
+24mm equivalent lens,
+f/1.78 smartphone optics physics,
+small sensor depth behavior,
+natural automatic Smart HDR processing,
+real Apple color science,
 handheld capture,
-natural window or ambient lighting,
-real world environment,
-background fully in focus,
+micro hand shake realism,
+subtle rolling shutter effect,
+natural highlight clipping,
+realistic shadow noise floor,
+true smartphone dynamic range limitation,
+minor chromatic aberration on edges,
+slight lens distortion,
+real spatial compression,
+natural perspective geometry,
+background 100% in focus,
 no portrait mode,
 no artificial depth of field,
-no background blur,
+no cinematic blur,
 no fake bokeh,
-everything naturally sharp,
-true-to-life spatial depth,
-real smartphone lens characteristics,
+real environment detail preserved,
+authentic ambient lighting,
+natural white balance shift,
+slight exposure inconsistency,
+true-to-life tonal mapping,
+real compression artifacts from social media,
 skin texture extremely detailed,
 visible pores in high resolution,
-uneven pigmentation,
-natural redness,
+uneven skin tone variation,
+natural redness zones,
 micro blemishes,
-light natural oil reflection,
+subtle acne texture,
+light oil reflection,
 fine facial hair visible,
-baby hairs detailed,
+baby hairs imperfect,
 realistic facial asymmetry,
-subtle skin translucency,
-organic shadow falloff,
-minor exposure imbalance,
-sensor grain,
-authentic mobile compression artifacts,
-natural highlight roll-off,
-slight lens distortion,
-realistic white balance shift,
+skin translucency variation,
+under-eye texture real,
 no beauty filter,
-no skin smoothing,
+no smoothing,
 no retouching,
 no CGI,
 no 3D render,
-no AI look,
 no artificial perfection,
-no plastic texture,
-true human skin realism
+no symmetry correction,
+no AI look,
+true human skin realism,
+raw authentic smartphone photography
 `;
 
+let melhorar = `${texto}, improved realism, better lighting, natural composition`;
+
+let ugc = `${texto}, ultra realistic UGC smartphone photo, natural lighting, visible pores, no AI look`;
+
+let pro = `${texto}, ultra realistic professional natural smartphone photo, real skin texture, no blur, no smoothing`;
+
 if(modo=="melhorar"){
-document.getElementById("saida").value = baseMelhorar;
+document.getElementById("saida").value = melhorar;
 }
 if(modo=="ugc"){
-document.getElementById("saida").value = baseUGC;
+document.getElementById("saida").value = ugc;
 }
 if(modo=="pro"){
-document.getElementById("saida").value = basePro;
+document.getElementById("saida").value = pro;
 }
-if(modo=="hiper"){
-document.getElementById("saida").value = baseHiper;
+if(modo=="absurdo"){
+document.getElementById("saida").value = engine5;
 }
 
 }
