@@ -3,79 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Human Prompt Engine 2.0</title>
+<title>HumanPrompt Nano Banana Pro</title>
 
 <style>
 body{
-background:#0f0f0f;
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg,#0f0f0f,#1c1c1c);
 color:white;
-font-family:Arial;
+text-align:center;
 padding:20px;
 }
-textarea{
-width:100%;
-height:120px;
-margin-bottom:10px;
+
+.container{
+max-width:500px;
+margin:auto;
 background:#1e1e1e;
-color:white;
-border:none;
-padding:10px;
-border-radius:8px;
+padding:20px;
+border-radius:12px;
+box-shadow:0 0 25px rgba(0,0,0,0.6);
 }
+
+h1{
+margin-bottom:5px;
+}
+
+p{
+opacity:0.7;
+font-size:14px;
+margin-bottom:20px;
+}
+
 button{
-padding:10px 15px;
-margin:5px 0;
-border:none;
-border-radius:8px;
 background:#00ff88;
-color:black;
+border:none;
+padding:12px;
+width:100%;
+border-radius:8px;
 font-weight:bold;
+margin-top:10px;
 cursor:pointer;
 }
-.result{
-margin-top:15px;
-background:#1a1a1a;
-padding:15px;
-border-radius:10px;
-white-space:pre-wrap;
+
+button:hover{
+opacity:0.85;
 }
-.select{
-margin-bottom:10px;
+
+textarea{
+width:100%;
+height:220px;
+margin-top:15px;
+border-radius:8px;
+padding:10px;
+border:none;
+resize:none;
+}
+
+label{
+display:block;
+margin-top:10px;
+font-size:14px;
 }
 </style>
 </head>
+
 <body>
 
-<h2>Human Prompt Engine 2.0</h2>
+<div class="container">
 
-<select id="nivel" class="select">
-<option value="baixo">Realismo Baixo</option>
-<option value="medio" selected>Realismo Médio</option>
-<option value="extremo">Realismo Extremo</option>
-</select>
+<h1>HumanPrompt Pro</h1>
+<p>Engine UGC Ultra Realista • Nano Banana Pro • Anti-IA</p>
 
-<textarea id="entrada" placeholder="Cole seu prompt aqui..."></textarea>
+<input type="file" id="foto" accept="image/*">
 
-<button onclick="melhorar()">Melhorar Prompt</button>
+<label>
+<input type="checkbox" id="modoHiper">
+Modo Hiper Realismo Extremo (poros ultra visíveis)
+</label>
 
-<div class="result" id="saida"></div>
+<button onclick="gerarPromptUGC()">Gerar Prompt UGC Ultra Real</button>
+
+<textarea id="saida" placeholder="Seu prompt ultra real aparecerá aqui..."></textarea>
+
+</div>
 
 <script>
 
-function melhorar(){
+function gerarPromptUGC(){
 
-let texto = document.getElementById("entrada").value;
-let nivel = document.getElementById("nivel").value;
+let inputFoto = document.getElementById("foto");
+let file = inputFoto.files[0];
 
-const base = {
-baixo: "realistic photo, natural lighting",
-medio: "ultra realistic photo, 35mm lens, natural skin texture, slight imperfections, natural lighting, subtle shadows",
-extremo: "ultra realistic RAW photo, handheld camera, 35mm lens, shallow depth of field, natural skin pores, uneven exposure, sensor noise, compression artifacts, imperfect framing, no CGI look"
+if(!file){
+alert("Envie uma imagem primeiro.");
+return;
+}
+
+let modoHiper = document.getElementById("modoHiper")?.checked;
+
+let orientation = "horizontal natural framing";
+
+let img = new Image();
+img.onload = function(){
+
+if(img.height > img.width){
+orientation = "vertical 9:16 composition, Instagram Story framing";
+}
+
+let prompt = `
+HYPER REALISTIC UGC photo,
+shot on Nano Banana Pro,
+handheld smartphone capture,
+natural window lighting,
+real skin texture with visible pores,
+uneven skin tone variation,
+natural redness in cheeks,
+subtle blemishes,
+micro acne texture,
+light natural oil reflection,
+fine lines under eyes,
+natural under-eye darkness,
+realistic facial asymmetry,
+peach fuzz facial hair visible,
+individual hair strands detailed,
+slight frizz,
+baby hairs visible,
+non-uniform skin texture,
+micro shadow variations,
+organic color science,
+realistic depth of field,
+slight motion blur,
+sensor grain,
+minor compression artifacts,
+no beauty filter,
+no smooth skin,
+no retouching,
+no CGI,
+no AI look,
+no plastic texture,
+no perfect symmetry,
+no artificial lighting,
+${orientation}
+`;
+
+if(modoHiper){
+prompt += `
+extreme micro skin detailing,
+high detail visible pores,
+skin translucency variation,
+subtle pigmentation inconsistencies,
+realistic dynamic range limitation,
+minor exposure imbalance,
+natural shadow falloff,
+hyper realistic imperfections amplified
+`;
+}
+
+document.getElementById("saida").value = prompt;
+
 };
 
-let resultado = base[nivel] + ", " + texto;
-
-document.getElementById("saida").innerText = resultado;
+img.src = URL.createObjectURL(file);
 
 }
 
